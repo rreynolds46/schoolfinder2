@@ -12,6 +12,7 @@ export * from './studentEssays';
 export * from './profileEdit';
 export * from './studentTranscript';
 export * from './getStudents';
+export * from './logoutActions';
 
 /* School Actions */
 export * from './school/profileEdit';

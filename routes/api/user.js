@@ -150,11 +150,10 @@ module.exports = function(passport){
 	/* HANDLE AUTHENTICATION */
 
 		/* Handle Logout GET */
-		router.get('/api/signout', function(req, res) {
+		router.get('/api/signout', function(req, res){
 			req.logout();
-			res.redirect('/');
-			res.json({ successful: true });
-		});
+			res.send({successful: true })
+		  });
 
 		/* Handle Login POST */
 		router.post('/api/login', passport.authenticate('login'), function(req, res) {

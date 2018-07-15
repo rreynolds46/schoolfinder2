@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import PropTypes from 'prop-types';
 
 import './header.css';
 
 
 class Header extends Component {
-    
+    logout(e) {
+        e.preventDefault();
+        this.props.userLogout();
+    }
 
 renderContent() {
     switch(this.props.auth) {
@@ -20,6 +24,7 @@ renderContent() {
             </div>
             );
         default:
+            
             const studentProf = this.props.auth._id;
             if(this.props.auth.grouping === 'student') {
                 return (
@@ -30,7 +35,7 @@ renderContent() {
                             <a className='navbar-item' href='/find/schools'>Find Schools</a>
                         </div>
                         <div className='navbar-end'>
-                            <a className='navbar-item' href='/api/signout'>Logout</a>
+                            <a className='navbar-item' onClick={this.logout.bind(this)}>Logout</a>
                         </div>
                     </div>
                     );      
@@ -58,6 +63,10 @@ renderContent() {
     </nav>
       );
     }
+  }
+
+  Header.proptypes = {
+      userLogout: PropTypes.func.isRequired
   }
 
   function mapStateToProps({ auth }) {
