@@ -9,8 +9,9 @@ export function userLogin(userData) {
             .then(res => {
                 if(res.data.successful) {
                     axios.get('/api/current_user').then(res => {
+                        const id = res.data._id;
                         dispatch({ type: FETCH_USER, payload: res.data})
-                        this.history.push('/');
+                        this.history.push(`/users/${id}`);
                     });
                 }
             })

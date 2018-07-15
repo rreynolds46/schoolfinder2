@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route, Router } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 class Landing extends Component {
     render() {

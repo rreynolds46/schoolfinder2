@@ -59,7 +59,7 @@ module.exports = function(passport){
 		
 		/* GET Student Surveys */
 		router.get('/api/surveys/', function(req, res) {
-			Users.findOne({ _user: req.params.userID }, (err, user) => {
+			Users.findOne({ _id: req.params.userID }, (err, user) => {
 				if(err) throw err;
 				res.send(user);
 			})
@@ -76,7 +76,7 @@ module.exports = function(passport){
 		
 		/* GET Student Surveys */
 		router.get('/api/surveys/:userID', function(req, res) {
-			Users.findOne({ _user: req.params.userID }, (err, user) => {
+			Users.findOne({ _id: req.params.userID }, (err, user) => {
 				if(err) throw err;
 				res.send(user);
 			})
@@ -85,7 +85,7 @@ module.exports = function(passport){
 		/* STUDENT Tests */
 		/* GET Student Tests */
 		router.get('/api/tests/:userID', function(req, res) {
-			Users.findOne({ _user: req.params.userID }, (err, user) => {
+			Users.findOne({ _id: req.params.userID }, (err, user) => {
 				if(err) throw err;
 				res.send(user);
 			})
@@ -102,7 +102,7 @@ module.exports = function(passport){
 		/* STUDENT Essays */
 		/* GET Student Essays */
 		router.get('/api/essays/:userID', function(req, res) {
-			Users.findOne({ _user: req.params.userID }, (err, user) => {
+			Users.findOne({ _id: req.params.userID }, (err, user) => {
 				if(err) throw err;
 				res.send(user);
 			})
