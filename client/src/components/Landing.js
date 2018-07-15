@@ -8,14 +8,9 @@ class Landing extends Component {
         <div>
             <section className="hero is-medium is-dark is-bold">
                 <div className="hero-body">
-                    <div className="container">
-                    <h1 className="title">
-                        Find A Perfect Fit
-                    </h1>
-                    <h2 className="subtitle">
-                        for students, advisers, and schools
-                    </h2>
-                    </div>
+                <h2>Milestone 2 Video</h2>
+
+                    <video width="90%" height="90%" controls autoplay><source src="https://tinytake.s3.amazonaws.com/pulse/reynro89-gmail/attachments/8292755/TinyTake15-07-2018-01-49-29.mp4" type="video/mp4" />Your browser does not support the video tag.</video><br /><a href="http://www.tinytake.com" title="Powered by TinyTake Screen Capture">Powered by TinyTake Screen Capture</a>
                 </div>
             </section>
                 
