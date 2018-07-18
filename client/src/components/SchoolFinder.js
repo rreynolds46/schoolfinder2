@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../actions';
 import ReactTable from "react-table";
+import matchSorter from 'match-sorter'
+
 import 'react-table/react-table.css';
 
 import './header.css';
@@ -27,21 +29,33 @@ class SchoolSearch extends Component {
                         accessor: "name",
                         Cell: cell => {
                             return(<a href={`/schools/${cell.original.schoolID}`}>{cell.value}</a>)
-                        } 
+                        },
+                        filterMethod: (filter, rows) =>
+                            matchSorter(rows, filter.value, { keys: ["name"] }),
+                        filterAll: true
                     }, {
                         Header: "Location",
                         headerClassName: 'header-class',
-                        accessor: "location"
+                        accessor: "location",
+                        filterMethod: (filter, rows) =>
+                            matchSorter(rows, filter.value, { keys: ["location"] }),
+                        filterAll: true
                     }, {
                         Header: "Enrollment",
                         headerClassName: 'header-class',
-                        accessor: "enrollment"
+                        accessor: "enrollment",
+                        filterMethod: (filter, row) => {
+                            return row[filter.id] >= filter.value
+                        }
                     }, {
                         Header: "Six Year Graduation Rate",
                         headerClassName: 'header-class',
                         accessor: "sixYear",
                         Cell: cell => {
                             return(<p>{cell.value}%</p>)
+                        } ,
+                        filterMethod: (filter, row) => {
+                            return row[filter.id] >= filter.value
                         }
                     }];
                     return(
@@ -50,6 +64,7 @@ class SchoolSearch extends Component {
                                data={data}
                                columns={columns}
                                className='-striped -highlight'
+                               filterable
                             />
                         </div>
                     )
