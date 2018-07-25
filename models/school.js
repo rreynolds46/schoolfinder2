@@ -14,7 +14,13 @@ const SchoolSchema = new Schema({
 		biography: String,
 		sixYear: String,
         description: String,
-        financialAid: String
+		financialAid: String,
+		acceptance: Number
+	 },
+	 schoolScores: {
+		act: Number,
+		sat: Number,
+		gpa: Number
 	 },
 	surveys: { 
 		campusSetting: { type: Number, default: 5 },

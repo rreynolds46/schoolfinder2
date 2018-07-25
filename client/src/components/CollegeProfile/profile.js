@@ -8,6 +8,7 @@ class Profile extends Component {
     componentDidMount = () => {
         const school = this.props.match.params.school;
         this.props.getSchoolProfile(school);
+
     }
 
 
@@ -34,7 +35,7 @@ class Profile extends Component {
                             
                             <div className='is-centered container card-container'>
                                 
-                                <section className='columns'>
+                                <section className='columns card-area'>
                                         <div className='column is-one-third'>
                                             <div className="card">
                                                 <div className="card-content">
@@ -53,12 +54,12 @@ class Profile extends Component {
                                             <div className="card">
                                                 <div className="card-content">
                                                     <p className="title">
-                                                        ${college.schoolProfile.financialAid}
+                                                        {college.schoolProfile.acceptance}%
                                                     </p>
                                                 </div>
                                                 <footer className="card-footer">
                                                     <p className="card-footer-item">
-                                                        Average Financial Aid
+                                                        Acceptance Rate
                                                     </p>
                                                 </footer>
                                             </div>
@@ -73,6 +74,48 @@ class Profile extends Component {
                                                 <footer className="card-footer">
                                                     <p className="card-footer-item">
                                                         Graduate in Six Years
+                                                    </p>
+                                                </footer>
+                                            </div>
+                                        </div>
+                                        <div className='column is-one-third'>
+                                            <div className="card">
+                                                <div className="card-content">
+                                                    <p className="title">
+                                                        {college.schoolScores.gpa}
+                                                    </p>
+                                                </div>
+                                                <footer className="card-footer">
+                                                    <p className="card-footer-item">
+                                                        Average GPA
+                                                    </p>
+                                                </footer>
+                                            </div>
+                                        </div>
+                                        <div className='column is-one-third'>
+                                            <div className="card">
+                                                <div className="card-content">
+                                                    <p className="title">
+                                                        {college.schoolScores.sat}
+                                                    </p>
+                                                </div>
+                                                <footer className="card-footer">
+                                                    <p className="card-footer-item">
+                                                        Average SAT
+                                                    </p>
+                                                </footer>
+                                            </div>
+                                        </div>
+                                        <div className='column is-one-third'>
+                                            <div className="card">
+                                                <div className="card-content">
+                                                    <p className="title">
+                                                        {college.schoolScores.act}
+                                                    </p>
+                                                </div>
+                                                <footer className="card-footer">
+                                                    <p className="card-footer-item">
+                                                        Average ACT
                                                     </p>
                                                 </footer>
                                             </div>

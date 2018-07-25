@@ -33,6 +33,7 @@ class Login extends Component {
       return (
         <div>
             <section className='container column is-one-fifth'>
+                <h3>Login</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="field">
                         <div className="control">

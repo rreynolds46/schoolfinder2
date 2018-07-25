@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -36,6 +38,8 @@ class CollegeSchedule extends Component {
 
     renderContent() {
                 const profileDone = this.props.college;
+                const profileStudent = this.props.auth;
+                console.log(profileStudent);
                 if(profileDone._id) {
                     const { college } = this.props;
                     return (
@@ -59,8 +63,14 @@ class CollegeSchedule extends Component {
                                 dateFormat="LLL"
                                 timeCaption="time"
                             />
-                            <p>Please Give Two Weekday's For Someone In Admissions To Respond</p>
+                            <p>Please Allow Two Weekday's For Someone In Admissions To Respond</p>
                             </div>
+                            <form action="https://formspree.io/reynro89@gmail.com"
+                                method="POST">
+                                <input type="hidden" name='date' value={this.state.date} />
+                                <input type="email" placeholder='What is your e-mail' defaultValue={profileStudent.username} name="_replyto" />
+                                <input type="submit" value="Send" />
+                            </form> 
                             
 
                         </div>
@@ -84,6 +94,11 @@ class CollegeSchedule extends Component {
     getSchoolProfile: PropTypes.func.isRequired
 }
 
+function mapStateToProps({ auth }) {
+    return { auth };
+  }
   
-  export default CollegeSchedule;
+export default connect(mapStateToProps, actions)(CollegeSchedule);
+  
+  
   

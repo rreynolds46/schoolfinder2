@@ -23,6 +23,13 @@ class CollegeProfile extends Component {
     componentDidMount = () => {
         const school = this.props.match.params.school;
         this.props.getSchoolProfile(school);
+
+        const script = document.createElement("script");
+
+        script.src = "//code.tidio.co/6t6j0z5dljhbsqtia9xcokehy5wkty9p.js";
+        script.async = true;
+
+        document.head.appendChild(script);
     }
 
     render() {
@@ -34,7 +41,6 @@ class CollegeProfile extends Component {
                 <TabList>
                   <Tab>Profile</Tab>
                   <Tab>Schedule a Call</Tab>
-                  <Tab>Chat</Tab>
                   <Tab>Video</Tab>
                   <Tab>Survey</Tab>
                 </TabList>
@@ -46,11 +52,8 @@ class CollegeProfile extends Component {
                     <CollegeSchedule {...this.props} />
                   </TabPanel>
                   <TabPanel>
-                    <CollegeChat {...this.props} />
-                  </TabPanel>
-                  <TabPanel>
                     <CollegeVideo {...this.props} />
-                  </TabPanel>
+                  </TabPanel> 
                 <TabPanel>
                     <CollegeSurvey {...this.props} />
                 </TabPanel>

@@ -20,7 +20,7 @@ module.exports = function(passport){
                     // already exists
                     if (user) {
                         console.log('User already exists with username: '+username);
-                        return '';
+                    
                     } else {
                         // if there is no user with that username
                         // create the user

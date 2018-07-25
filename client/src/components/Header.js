@@ -19,8 +19,7 @@ renderContent() {
         case false:
             return(
             <div className='navbar-end'>
-                <a className='navbar-item' href='/register'>Register</a>
-                <a className='navbar-item' href='/login'>Login</a> 
+                <a className='navbar-item' href='/auth'>Login</a> 
             </div>
             );
         default:

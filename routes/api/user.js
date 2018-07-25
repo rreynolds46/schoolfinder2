@@ -161,8 +161,12 @@ module.exports = function(passport){
 		});
 
 		/* Handle Registration POST */
-		router.post('/api/users', passport.authenticate('signup', function(req, res) {
-			console.log(res);
+		router.post('/api/users', passport.authenticate('signup', function(req, res, err) {
+			if(err) {
+				console.log(err)
+			} else {
+				console.log(res);						
+			}
 		}));
 
 		/* GET Current User */

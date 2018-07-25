@@ -28,6 +28,7 @@ class Register extends Component {
       return (
         <div>
             <section className='container column is-one-fifth'>
+                <h3>Register</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="field">
                         <div className="control">

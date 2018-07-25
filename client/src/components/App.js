@@ -14,6 +14,7 @@ import StudentProfile from './StudentProfile';
 import CollegeProfile from './CollegeProfile';
 import SchoolSearch from './SchoolFinder';
 import StudentSearch from './StudentFinder';
+import AuthMain from './Auth';
 
 const history = createBrowserHistory();
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
               path='/schools/:school'
               component={CollegeProfile}
             />
+            <Route exact path='/auth' render={ (props) => <AuthMain {...props} /> } />
             <Route exact path='/register' render={ (props) => <Register {...props} userSignup={userSignup} />}/>
             <Route exact path='/login' render={ (props) => <Login {...props} userLogin={userLogin} /> }/> 
             <Route exact path='/find/schools/' component={SchoolSearch} />
