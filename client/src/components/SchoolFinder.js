@@ -21,12 +21,12 @@ class SchoolSearch extends Component {
                     const { schoolList } = this.props;
                     const data = [];
                     schoolList.forEach(function(school) {
-                        data.push(school.schoolProfile)
+                        data.push(school)
                     }.bind(this));
                     const columns = [{
                         Header: "School Name",
                         headerClassName: 'header-class',
-                        accessor: "name",
+                        accessor: "schoolProfile.name",
                         Cell: cell => {
                             return(<a href={`/schools/${cell.original.schoolID}`}>{cell.value}</a>)
                         },
@@ -36,23 +36,43 @@ class SchoolSearch extends Component {
                     }, {
                         Header: "Location",
                         headerClassName: 'header-class',
-                        accessor: "location",
+                        accessor: "schoolProfile.location",
                         filterMethod: (filter, rows) =>
                             matchSorter(rows, filter.value, { keys: ["location"] }),
                         filterAll: true
                     }, {
                         Header: "Enrollment",
                         headerClassName: 'header-class',
-                        accessor: "enrollment",
+                        accessor: "schoolProfile.enrollment",
                         filterMethod: (filter, row) => {
                             return row[filter.id] >= filter.value
                         }
                     }, {
                         Header: "Six Year Graduation Rate",
                         headerClassName: 'header-class',
-                        accessor: "sixYear",
+                        accessor: "schoolProfile.sixYear",
                         Cell: cell => {
                             return(<p>{cell.value}%</p>)
+                        } ,
+                        filterMethod: (filter, row) => {
+                            return row[filter.id] >= filter.value
+                        }
+                    }, {
+                        Header: "Average GPA of Freshman",
+                        headerClassName: 'header-class',
+                        accessor: "schoolScores.gpa",
+                        Cell: cell => {
+                            return(<p>{cell.value}</p>)
+                        } ,
+                        filterMethod: (filter, row) => {
+                            return row[filter.id] >= filter.value
+                        }
+                    }, {
+                        Header: "Average SAT of Freshman",
+                        headerClassName: 'header-class',
+                        accessor: "schoolScores.sat",
+                        Cell: cell => {
+                            return(<p>{cell.value}</p>)
                         } ,
                         filterMethod: (filter, row) => {
                             return row[filter.id] >= filter.value
